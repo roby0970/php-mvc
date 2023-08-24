@@ -5,7 +5,7 @@ class Controller
 
   function __construct()
   {
-    // Session::int();
+      Session::int();
   }
 
   public function model($model)

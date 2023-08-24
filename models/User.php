@@ -3,7 +3,7 @@
 class User extends Model {
 
     public function findAll() {
-        $this->db->query('SELECT * FROM test');
+        $this->db->query('SELECT * FROM users');
 
         $row = $this->db->resultSet();
 
@@ -14,21 +14,21 @@ class User extends Model {
             return false;
         }
     }
-    // //Find user by email or username
-    // public function findUserByEmailOrUsername($email, $username){
-    //     $this->db->query('SELECT * FROM users WHERE usersUid = :username OR usersEmail = :email');
-    //     $this->db->bind(':username', $username);
-    //     $this->db->bind(':email', $email);
+    //Find user by email or username
+    public function findUserByEmailOrUsername($email, $username){
+        $this->db->query('SELECT * FROM users WHERE username = :username OR email = :email');
+        $this->db->bind(':username', $username);
+        $this->db->bind(':email', $email);
 
-    //     $row = $this->db->single();
+        $row = $this->db->single();
 
-    //     //Check row
-    //     if($this->db->rowCount() > 0){
-    //         return $row;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+        //Check row
+        if($this->db->rowCount() > 0){
+            return $row;
+        }else{
+            return false;
+        }
+    }
 
     // //Register User
     // public function register($data){
@@ -48,19 +48,19 @@ class User extends Model {
     //     }
     // }
 
-    // //Login user
-    // public function login($nameOrEmail, $password){
-    //     $row = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
+    //Login user
+    public function login($nameOrEmail, $password){
+        $row = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
 
-    //     if($row == false) return false;
+        if($row == false) return false;
 
-    //     $hashedPassword = $row->usersPwd;
-    //     if(password_verify($password, $hashedPassword)){
-    //         return $row;
-    //     }else{
-    //         return false;
-    //     }
-    // }
+        $hashedPassword = $row->password;
+        if(password_verify($password, $hashedPassword)){
+            return $row;
+        }else{
+            return false;
+        }
+    }
 
     // //Reset Password
     // public function resetPassword($newPwdHash, $tokenEmail){

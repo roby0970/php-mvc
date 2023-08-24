@@ -19,5 +19,39 @@
 
 
     <header id="header">
-        <p>HEADER</p>
+    <div class="top-nav" >
+            <ul class="top-nav-list">
+                <!-- <li><a href="<?php
+                                    if (isset($_SESSION['role']))
+                                    {
+                                        if($_SESSION['role'] == 2)
+                                        {
+                                            echo "Moderator";
+                                        }
+                                        else
+                                        {
+                                            echo "Admin";
+                                        }
+                                    }
+                            ?>"> -->
+                <?php
+                if (isset($_SESSION['username']))
+                {
+                    echo 'Welcome, ' . $_SESSION['username'];
+                }
+                ?>
+                    </a></li>
+                <?php
+                if (isset($_SESSION['username']))
+                {
+                    echo '<li><a href="./Login/logoutUser">Logout</a></li>';
+                }
+                else
+                {
+                    echo '<li><a href="./Login">Login</a></li>';
+                }
+                ?>
+
+            </ul>
+        </div>
     </header>
