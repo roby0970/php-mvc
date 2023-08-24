@@ -3,7 +3,7 @@
 class User extends Model {
 
     public function findAll() {
-        $this->db->query('SELECT * FROM users');
+        $this->db->query('SELECT users.username as username, users.email as email, roles.name as roleName FROM users LEFT JOIN roles on users.role_id = roles.id');
 
         $row = $this->db->resultSet();
 
@@ -16,7 +16,7 @@ class User extends Model {
     }
     //Find user by email or username
     public function findUserByEmailOrUsername($email, $username){
-        $this->db->query('SELECT * FROM users WHERE username = :username OR email = :email');
+        $this->db->query('SELECT * FROM users, roles WHERE username = :username OR email = :email');
         $this->db->bind(':username', $username);
         $this->db->bind(':email', $email);
 
@@ -30,25 +30,6 @@ class User extends Model {
         }
     }
 
-    // //Register User
-    // public function register($data){
-    //     $this->db->query('INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) 
-    //     VALUES (:name, :email, :Uid, :password)');
-    //     //Bind values
-    //     $this->db->bind(':name', $data['usersName']);
-    //     $this->db->bind(':email', $data['usersEmail']);
-    //     $this->db->bind(':Uid', $data['usersUid']);
-    //     $this->db->bind(':password', $data['usersPwd']);
-
-    //     //Execute
-    //     if($this->db->execute()){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
-
-    //Login user
     public function login($nameOrEmail, $password){
         $row = $this->findUserByEmailOrUsername($nameOrEmail, $nameOrEmail);
 
@@ -62,17 +43,4 @@ class User extends Model {
         }
     }
 
-    // //Reset Password
-    // public function resetPassword($newPwdHash, $tokenEmail){
-    //     $this->db->query('UPDATE users SET usersPwd=:pwd WHERE usersEmail=:email');
-    //     $this->db->bind(':pwd', $newPwdHash);
-    //     $this->db->bind(':email', $tokenEmail);
-
-    //     //Execute
-    //     if($this->db->execute()){
-    //         return true;
-    //     }else{
-    //         return false;
-    //     }
-    // }
 }

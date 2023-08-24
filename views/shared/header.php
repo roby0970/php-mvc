@@ -21,19 +21,6 @@
     <header id="header">
     <div class="top-nav" >
             <ul class="top-nav-list">
-                <!-- <li><a href="<?php
-                                    if (isset($_SESSION['role']))
-                                    {
-                                        if($_SESSION['role'] == 2)
-                                        {
-                                            echo "Moderator";
-                                        }
-                                        else
-                                        {
-                                            echo "Admin";
-                                        }
-                                    }
-                            ?>"> -->
                 <?php
                 if (isset($_SESSION['username']))
                 {
@@ -43,7 +30,9 @@
                     </a></li>
                 <?php
                 if (isset($_SESSION['username']))
-                {
+                {   
+                    echo '<li><a href="./Users">Users</a></li>';
+                    echo '<li><a href="./Roles">Roles</a></li>';
                     echo '<li><a href="./Login/logoutUser">Logout</a></li>';
                 }
                 else
