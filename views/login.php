@@ -1,4 +1,4 @@
-<form action="./Login/checkUser" method="post">
+<form action="/Login/checkUser" method="post">
 
   <div class="container">
     <label for="email"><b>Email</b></label>

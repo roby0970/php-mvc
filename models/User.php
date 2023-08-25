@@ -43,4 +43,29 @@ class User extends Model {
         }
     }
 
+    public function setRole($userId, $role){
+        $this->db->query('UPDATE users SET role_id = :role_id WHERE id = :id' );
+        $this->db->bind(':role_id', $role);
+        $this->db->bind(':id', $userId);
+        $this->db->single();
+        //Check row
+        if($this->db->rowCount() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function unsetRole($role){
+        $this->db->query('UPDATE users SET role_id = NULL WHERE role_id = :role_id' );
+        $this->db->bind(':role_id', $role);
+        $this->db->single();
+        //Check row
+        if($this->db->rowCount() > 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

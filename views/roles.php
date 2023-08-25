@@ -10,6 +10,7 @@
             <th>name</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -19,10 +20,11 @@
             echo '<th>'. $key .'</th>';
             echo '<th>'. $value->name .'</th>';
             echo '<th> 
-                    <a href="./EditRoles/'.$value->id.'">Edit</a></li>
+                    
+                    <a href="./EditRoles/'.$value->id.'">Edit</a>
                 </th>';
             echo '<th> 
-                    <a href="./DeleteRoles/'.$value->id.'">Delete</a></li>
+                    <a href="./DeleteRoles/'.$value->id.'">Delete</a>
                 </th>';
             echo '</tr>';
         }
