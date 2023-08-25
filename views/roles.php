@@ -1,12 +1,15 @@
 
 
-<h1 id="index-text">Roles list </h1>
+<h1 id="index-text"><?php echo $data['rolesAction']?> Roles</h1>
+<a href="./CreateRoles">Add role</a></li>
 
 <table>
     <thead>
         <tr>
             <th>No.</th>
             <th>name</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -15,9 +18,14 @@
             echo '<tr>';
             echo '<th>'. $key .'</th>';
             echo '<th>'. $value->name .'</th>';
+            echo '<th> 
+                    <a href="./EditRoles/'.$value->id.'">Edit</a></li>
+                </th>';
+            echo '<th> 
+                    <a href="./DeleteRoles/'.$value->id.'">Delete</a></li>
+                </th>';
             echo '</tr>';
         }
         ?>
     </tbody>
-
 </table>

@@ -1,16 +1,15 @@
 <?php
 
-class Roles extends Controller {
+class EditRoles extends Controller {
 
     public $roles;
    
     public function index()
     {    
-      
      $model = $this->model('Role');
      $this->roles = $model->findAll();
-    $this->view('roles', ['viewName' => 'Roles', 'rolesAction' => 'View']);
-    }
+     $this->view('rolesForm', ['viewName' => 'Edit role', 'rolesAction' => 'Edit']);
 
+    }
 }
 ?>
