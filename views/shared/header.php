@@ -18,6 +18,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            font-family: Arial, Helvetica, sans-serif !important; 
         }
         li {
             all: unset;
@@ -40,9 +41,38 @@
     position:fixed;
 }
 
+.table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    .tbody {
+
+        .td, .th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        
+        .tr:nth-child(even){background-color: #f2f2f2;}
+        
+        .tr:hover {background-color: #ddd;}
+        
+        .th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+            
+        }
+    }
+    
+    
+}
+
 .header{
     top: 0px;
-    background-color: green;
+    background-color: #04AA6D;
+    color: white;
     min-width: 100%;
     height: 55px;
 
@@ -66,10 +96,92 @@
     }
 }
 
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=password], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif !important; 
+}
+
+button[type=submit].secondary {
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: 2px solid black;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif !important; 
+}
+
+a.cancel-btn {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 14px 20px;
+    text-align: center;
+    margin: 8px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link-logout, .link-login {
+    
+    color: white;
+    padding: 7px 10px;
+   
+    border: 2px solid white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 .content {
     flex: 1;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 15px;
     margin-top: 75px;
 
     .login-form {
@@ -82,14 +194,14 @@
         .container {
             min-width: 580px;
             min-height: 580px;
-            background-color: gray;
+            /* background-color: gray; */
             
             .form-container {
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                gap: 50px;
+                gap: 40px;
                 margin-left: 50px;
                 margin-right: 50px;
 
@@ -107,22 +219,121 @@
             }
         }
     }
+
+    
+    .users-lists {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .users-list-container {
+            min-width: 580px;
+            min-height: 580px;
+            /* background-color: gray; */
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+        
+            .index-text-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .index-text {
+                    font-size: 2em;
+                    font-weight: 800;
+                }
+            }
+
+            .container-add-user {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                
+            }
+
+        }
+
+    }
+
+    .delete-view {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+    }
+
+    .delete-view h1 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .edit {
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .edit-container {
+            min-width: 580px;
+            min-height: 580px;
+            /* background-color: gray; */
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+
+            .edit-title {
+                    font-size: 2em;
+                    font-weight: 800;
+                    align-self: center;
+            }
+
+            .edit-form {
+                margin-top: 50px;
+                display: flex;
+                flex-direction: column;
+               
+                gap: 50px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+        }
+    }
 }
 
+.user-actions { 
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.form-action {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
 .btn--primary {
-   
-        background-color: red;
-    
+    background-color: red;
 }
 
 
 
 .footer {
 
-    background-color: green;
+    background-color: #04AA6D;
     padding: 15px;
     height: 55px;
-
+    color: white;
     margin-bottom: 0px;
 }
 </style>
@@ -139,7 +350,7 @@
                 <?php
                 if (isset($_SESSION['username']))
                 {
-                    echo '<p class="username-tag">Welcome, ' . $_SESSION['username'] , "</p>";
+                    echo '<p class="username-tag">Welcome, <b>' . $_SESSION['username'] , "</b></p>";
                 }
                 ?>
                     </a>
