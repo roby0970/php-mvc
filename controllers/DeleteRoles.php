@@ -9,7 +9,7 @@ class DeleteRoles extends Controller {
      $roleId = basename($_SERVER['REQUEST_URI']);
      $model = $this->model('Role');
      $this->role = $model->findSingle($roleId);
-     $this->view('deleteForm', ['viewName' => 'Delete role', 'roleId' => $this->role->id, 'roleName' => $this->role->name]);
+     $this->view('deleteRole', ['viewName' => 'Delete role', 'roleId' => $this->role->id, 'roleName' => $this->role->name]);
     }
 
     public function delete() {

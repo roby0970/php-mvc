@@ -9,7 +9,7 @@
 <table>
     <thead>
         <tr>
-            <th>No.</th>
+            <th>Id</th>
             <th>name</th>
             <th></th>
             <th></th>
@@ -24,7 +24,7 @@
            else {
             foreach($this->roles as $key => $value) {
                 echo '<tr>';
-                echo '<th>'. $key .'</th>';
+                echo '<th>'. $value->id .'</th>';
                 echo '<th>'. $value->name .'</th>';
                 echo '<th> 
                         

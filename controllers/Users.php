@@ -8,7 +8,7 @@ class Users extends Controller {
     {     
      $model = $this->model('User');
      $this->users = $model->findAll();
-      $this->view('listUsers', ['viewName' => 'Users']);
+      $this->view('users', ['viewName' => 'Users']);
     }
 }
 ?>
