@@ -6,9 +6,18 @@ class CreateRoles extends Controller {
    
     public function index()
     {    
-     $model = $this->model('Role');
-     $this->roles = $model->findAll();
-     $this->view('rolesForm', ['viewName' => 'Add role', 'rolesAction' => 'Add']);
+        $this->view('addOrEditRole', ['viewName' => 'Add role', 'action' => '/CreateRoles/create']);
+    }
+
+    public function create() {
+        $roles = $this->model('Role');
+        var_dump($_POST);
+        if (isset($_POST['formName'])) {
+            $roles->insert($_POST['formName']);
+            header('location: /Roles');
+        } else {
+            header('location: /Roles');
+        }
     }
 }
 ?>

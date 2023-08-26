@@ -29,15 +29,17 @@
                 ?>
                     </a></li>
                 <?php
+                echo '<li><a href="/Home">Home</a></li>';
                 if (isset($_SESSION['username']))
-                {   
-                    echo '<li><a href="./Users">Users</a></li>';
-                    echo '<li><a href="./Roles">Roles</a></li>';
-                    echo '<li><a href="./Login/logoutUser">Logout</a></li>';
+                {    
+                   
+                    echo '<li><a href="/Users">Users</a></li>';
+                    echo '<li><a href="/Roles">Roles</a></li>';
+                    echo '<li><a href="/Login/logoutUser">Logout</a></li>';
                 }
                 else
                 {
-                    echo '<li><a href="./Login">Login</a></li>';
+                    echo '<li><a href="/Login">Login</a></li>';
                 }
                 ?>
 
