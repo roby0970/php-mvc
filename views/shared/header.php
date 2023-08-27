@@ -41,10 +41,15 @@
     position:fixed;
 }
 
+.overflow{
+    overflow-x: auto;
+}
+
 .table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
+    overflow-x: auto;
     .tbody {
 
         .td, .th {
@@ -192,18 +197,17 @@ a.cancel-btn {
         justify-content: center;
 
         .container {
-            min-width: 580px;
-            min-height: 580px;
+            min-width: 40%;
+            /* min-height: 580px; */
             /* background-color: gray; */
             
             .form-container {
                 margin-top: 50px;
                 display: flex;
                 flex-direction: column;
-                align-items: center;
+                
                 gap: 40px;
-                margin-left: 50px;
-                margin-right: 50px;
+                
 
                 .login-title {
                     font-size: 2em;
@@ -211,10 +215,7 @@ a.cancel-btn {
                     align-self: center;
                 }
 
-                .input-container {
-                    display: flex;
-                    flex-direction: column;
-                }
+                
 
             }
         }
@@ -228,8 +229,8 @@ a.cancel-btn {
         align-items: center;
 
         .users-list-container {
-            min-width: 90%;
-            min-height: 580px;
+            width: 100%;
+            /* min-height: 580px; */
             /* background-color: gray; */
             padding-left: 15px;
             padding-right: 15px;
@@ -267,7 +268,7 @@ a.cancel-btn {
 
         .delete-container {
             min-width: 60%;
-            min-height: 580px;
+            /* min-height: 580px; */
             padding-left: 15px;
             padding-right: 15px;
             padding-top: 15px;
@@ -298,7 +299,7 @@ a.cancel-btn {
 
         .edit-container {
             min-width: 60%;
-            min-height: 580px;
+            /* min-height: 580px; */
             /* background-color: gray; */
             padding-left: 15px;
             padding-right: 15px;
