@@ -74,7 +74,7 @@
     background-color: #04AA6D;
     color: white;
     min-width: 100%;
-    height: 55px;
+    height: 70px;
 
     .top-nav {
         padding: 15px;
@@ -83,13 +83,15 @@
     .top-nav-list {
         display: flex; 
         flex-direction: row;
-        gap: 20px;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+        align-items:center;
 
         .navigation-list {
             display: flex;
             flex-direction:row;
-            gap: 200px;
+            justify-content: space-around;
+            width: 100%;
+            /* gap: 200px; */
         }
 
         /* s */
@@ -168,10 +170,8 @@ a.cancel-btn {
 }
 
 .link-logout, .link-login {
-    
     color: white;
     padding: 7px 10px;
-   
     border: 2px solid white;
     border-radius: 4px;
     cursor: pointer;
@@ -226,10 +226,9 @@ a.cancel-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         .users-list-container {
-            min-width: 580px;
+            min-width: 90%;
             min-height: 580px;
             /* background-color: gray; */
             padding-left: 15px;
@@ -266,9 +265,27 @@ a.cancel-btn {
         align-items: center;
         gap: 20px;
 
+        .delete-container {
+            min-width: 60%;
+            min-height: 580px;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+
+            .form-action  {
+                margin-top: 30px;
+                display: flex;
+                flex-direction: column;
+               
+                gap: 10px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+        }
+
     }
 
-    .delete-view h1 {
+    .delete-container h1 {
         font-size: 2rem;
         font-weight: 700;
     }
@@ -278,10 +295,9 @@ a.cancel-btn {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
 
         .edit-container {
-            min-width: 580px;
+            min-width: 60%;
             min-height: 580px;
             /* background-color: gray; */
             padding-left: 15px;
@@ -299,7 +315,7 @@ a.cancel-btn {
                 display: flex;
                 flex-direction: column;
                
-                gap: 50px;
+                gap: 30px;
                 margin-left: 50px;
                 margin-right: 50px;
             }
@@ -352,9 +368,6 @@ a.cancel-btn {
                 {
                     echo '<p class="username-tag">Welcome, <b>' . $_SESSION['username'] , "</b></p>";
                 }
-                ?>
-                    </a>
-                <?php
                 echo '<ul class="navigation-list">';
                 echo '<div class="link-navigation"><a href="/Home">Home</a></div>';
                 if (isset($_SESSION['username']))

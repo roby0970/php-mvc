@@ -36,7 +36,7 @@
             </div>
             <div class="user-actions">
                 <button type="submit" name="submit">Submit</button>
-                <a class="cancel-btn" href="/Users">Cancel<a> 
+                <a class="cancel-btn" href="/Users">Cancel</a> 
             </div>
         </form>
     </div>

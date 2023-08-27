@@ -10,7 +10,7 @@
             </div>
             <div class="user-actions">
                 <button type="submit" name="submit">Submit</button>
-                <a href="/Roles">Cancel<a>
+                <a class="cancel-btn" href="/Roles">Cancel<a>
             </div>
         </form>
     </div>
