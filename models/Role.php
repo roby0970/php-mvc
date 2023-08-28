@@ -58,12 +58,12 @@ class Role extends Model {
     public function insert($newName) {
         $this->db->query('INSERT into roles (name) values (:newName)');
         $this->db->bind(':newName', $newName);
-        $this->db->single();
+        $result = $this->db->single();
         //Check row
         if($this->db->rowCount() > 0){
-            return true;
+            return $this->db->getLastInsertedId();
         }else{
-            return false;
+            return -1;
         }
     }
 }
