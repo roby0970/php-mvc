@@ -4,17 +4,31 @@
         <div class="index-text-container">
             <h1 id="index-text" class="index-text"><?php echo $data['rolesAction']?> Roles</h1>
         </div>
-        <div class="container-add-user">
-            <a href="./CreateRoles">Add role</a></li>
-        </div>
+        
+        <?php 
+            if (isset($data['access']) && in_array("addRoles", $data['access'])) {
+                echo '<div class="container-add-user">';
+                echo '<a href="./CreateRoles">Add role</a></li>';
+                echo '</div>';
+            }
+        ?>
+        
 
         <table class="table">
             <tbody class="tbody">
                 <tr class="tr">
                     <th class="th">Id</th>
                     <th class="th">name</th>
-                    <th class="th"></th>
-                    <th class="th"></th>
+                    <?php 
+                        if (isset($data['access']) && in_array("editRoles", $data['access'])) {
+                            echo '<th class="th"></th>';
+                        }
+                    ?>
+                    <?php 
+                        if (isset($data['access']) && in_array("deleteRoles", $data['access'])) {
+                            echo '<th class="th"></th>';
+                        }
+                    ?>
                 </tr>
 
                 <?php 
@@ -27,13 +41,18 @@
                         echo '<tr class="tr">';
                         echo '<td class="td">'. $value->id .'</td>';
                         echo '<td class="td">'. $value->name .'</td>';
-                        echo '<td class="td"> 
+                        if (isset($data['access']) && in_array("editRoles", $data['access'])) {
+                            echo '<td class="td"> 
                                 
-                                <a href="./EditRoles/'.$value->id.'">Edit</a>
-                            </td>';
-                        echo '<td class="td"> 
+                                        <a href="./EditRoles/'.$value->id.'">Edit</a>
+                                    </td>';
+                        }
+                        if (isset($data['access']) && in_array("deleteRoles", $data['access'])) {
+                            echo '<td class="td"> 
                                 <a href="./DeleteRoles/'.$value->id.'">Delete</a>
                             </td>';
+                        }
+                        
                         echo '</tr>';
                     }
                 }

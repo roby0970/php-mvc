@@ -11,8 +11,10 @@ class Login extends Controller
         $model = $this->model('User');
         $user = $model->login($_POST['email'], $_POST['password']);
         if ($user != null) {
+            $accessToActions = $this->model('RolePermission')->getRolePermissions($user->role_id);
             Session::set('username', $user->username);
-            Session::set('role', $user->role);
+            Session::set('role', $user->role_id);
+            Session::set('permission', $accessToActions);
             Session::set('id', $user->id);
             header('location: /Home');
         } else {
