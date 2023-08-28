@@ -6,43 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Seminar CMS" />
 
+    <!-- <link rel="stylesheet" href="/assets/styles.css" type="text/css" media="screen"> -->
+
     <title>CMS |
         <?php echo $data['viewName']; ?>
     </title>
-    <style>
-
-    </style>
+    <?php include 'assets/styles.php'; ?>
 
 </head>
 
 <body>
 
+   
 
-    <header id="header">
+    <header class="header" id="header">
     <div class="top-nav" >
-            <ul class="top-nav-list">
+            <div class="top-nav-list">
                 <?php
                 if (isset($_SESSION['username']))
                 {
-                    echo 'Welcome, ' . $_SESSION['username'];
+                    echo '<p class="username-tag">Welcome, <b>' . $_SESSION['username'] , "</b></p>";
                 }
-                ?>
-                    </a></li>
-                <?php
-                echo '<li><a href="/Home">Home</a></li>';
+                echo '<ul class="navigation-list">';
+                echo '<div class="link-navigation"><a href="/Home">Home</a></div>';
                 if (isset($_SESSION['username']))
                 {    
-                   
-                    echo '<li><a href="/Users">Users</a></li>';
-                    echo '<li><a href="/Roles">Roles</a></li>';
-                    echo '<li><a href="/Login/logoutUser">Logout</a></li>';
+                    echo '<div class="link-navigation"><a href="/Users">Users</a></div>';
+                    echo '<div class="link-navigation"><a href="/Roles">Roles</a></div>';
+                    echo '</ul>';
+                    echo '<div class="link-logout"><a href="/Login/logoutUser">Logout</a></div>';
                 }
                 else
                 {
-                    echo '<li><a href="/Login">Login</a></li>';
+                    echo '</ul>';
+                    echo '<div class="link-login"><a href="/Login">Login</a></div>';
                 }
                 ?>
 
-            </ul>
+            </div>
         </div>
     </header>
+    <div class="content">
