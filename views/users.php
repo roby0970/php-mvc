@@ -30,7 +30,7 @@
                         echo '<td class="td">'. $value->username .'</td>';
                         echo '<td class="td">'. $value->roleName .'</td>';
                         echo '<td class="td"> 
-                                    <a href="./EditUsers/'.$value->id.'">Edit</a>
+                                    <a class="secondary" href="./EditUsers/'.$value->id.'">Edit</a>
                                 </td>';
                             echo '<td class="td"> 
                                     <a href="./DeleteUsers/'.$value->id.'">Delete</a>
