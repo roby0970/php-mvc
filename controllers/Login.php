@@ -26,6 +26,7 @@ class Login extends Controller
         unset($_SESSION['username']);
         unset($_SESSION['role']);
         unset($_SESSION['id']);
+        unset($_SESSION['permission']);
         Session::destroy();
         header('location: /Home');
         Session::int();

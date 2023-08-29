@@ -1,26 +1,22 @@
 <?php
-function mapToName($elem) {
-    return $elem->name;
-}
-class Roles extends Controller {
-   
+// function mapToName($elem)
+// {
+//     return $elem->name;
+// }
+class Roles extends Controller
+{
+
     public $roles;
-    
-    public function index()
-    {    
-      
-     $model = $this->model('Role');
-     $this->roles = $model->findAll();
-     
-     if (isset($_SESSION['username']) && isset($_SESSION['role'])) {
-        $accessToActions = array_map('mapToName', $this->model('RolePermission')->getRolePermissions($_SESSION['role']));
-        $this->view('roles', ['viewName' => 'Roles', 'rolesAction' => 'View', 'access' => $accessToActions]);
-     } else {
-        header('Location: /Home');
-     }
-     
-    
+    protected function permission()
+    {
+        return 'readRoles';
     }
-    
+    public function index()
+    {
+        $this->requestAccess();
+        $this->roles = $this->model('Role')->findAll();
+        $this->view('roles', ['viewName' => 'Roles', 'access' => array_map('mapToName', $_SESSION['permission'])]);
+    }
+
 }
 ?>

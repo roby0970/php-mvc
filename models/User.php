@@ -16,7 +16,7 @@ class User extends Model {
     }
     //Find user by email or username
     public function findUserByEmailOrUsername($email, $username){
-        $this->db->query('SELECT * FROM users, roles WHERE username = :username OR email = :email');
+        $this->db->query('SELECT * FROM users WHERE username = :username OR email = :email');
         $this->db->bind(':username', $username);
         $this->db->bind(':email', $email);
 

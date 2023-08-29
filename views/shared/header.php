@@ -31,8 +31,15 @@
                 echo '<div class="link-navigation"><a href="/Home">Home</a></div>';
                 if (isset($_SESSION['username']))
                 {    
-                    echo '<div class="link-navigation"><a href="/Users">Users</a></div>';
-                    echo '<div class="link-navigation"><a href="/Roles">Roles</a></div>';
+                    if (isset($_SESSION['permission'])) {
+                        if(in_array("readUsers", array_map('mapToName', $_SESSION['permission']))) {
+                            echo '<div class="link-navigation"><a href="/Users">Users</a></div>';
+                        }
+                        if(in_array("readRoles", array_map('mapToName', $_SESSION['permission']))) {
+                            echo '<div class="link-navigation"><a href="/Roles">Roles</a></div>';
+                        }
+                    }   
+                    
                     echo '</ul>';
                     echo '<div class="link-logout"><a href="/Login/logoutUser">Logout</a></div>';
                 }
