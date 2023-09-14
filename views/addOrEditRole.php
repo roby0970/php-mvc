@@ -2,7 +2,8 @@
     <div class="edit-container">
         <h1 class="edit-title" id="index-text"><?php echo $data['viewName']?></h1>
 
-        <form action="<?php echo $data['action']?>" method="POST" class="edit-form">
+        <form action="/Roles/<?php echo $data['action']?>" method="POST" class="edit-form">
+            <input type="hidden" name="action" id="action" value="<?php echo $data['action']?>">
             <input type="hidden" name="roleId" value="<?php if (isset($data['roleId'])) { echo $data['roleId']; } ?>">
             <div class="input-container">
                 <label for="formName">Role name: </label>

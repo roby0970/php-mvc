@@ -7,7 +7,7 @@
         <?php
         if (isset($data['access']) && in_array("addRoles", $data['access'])) {
             echo '<div class="container-add-user">';
-            echo '<a href="./CreateRoles">Add role</a></li>';
+            echo '<a href="/Roles/create">Add role</a></li>';
             echo '</div>';
         }
         ?>
@@ -41,12 +41,12 @@
                         if (isset($data['access']) && in_array("editRoles", $data['access'])) {
                             echo '<td class="td"> 
                                 
-                                        <a href="./EditRoles/' . $value->id . '">Edit</a>
+                                        <a href="/Roles/edit/' . $value->id . '">Edit</a>
                                     </td>';
                         }
                         if (isset($data['access']) && in_array("deleteRoles", $data['access'])) {
                             echo '<td class="td"> 
-                                <a href="./DeleteRoles/' . $value->id . '">Delete</a>
+                                <a href="/Roles/delete/' . $value->id . '">Delete</a>
                             </td>';
                         }
 

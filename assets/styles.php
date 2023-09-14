@@ -8,9 +8,12 @@ body{
         }
         li {
             all: unset;
+            margin-bottom: 10px;
+            display: block;
         }
         ul {
             all: unset;
+            list-style: none;
         }
         a {
             all:unset;
@@ -26,6 +29,7 @@ body{
 .header {
     position:fixed;
 }
+
 
 .overflow{
     overflow-x: auto;
@@ -188,6 +192,7 @@ a.cancel-btn {
     padding-right: 15px;
     padding-bottom: 15px;
     margin-top: 75px;
+    margin-left: 200px;
 
     .login-form {
         min-height: 100%;
@@ -352,5 +357,24 @@ a.cancel-btn {
     height: 55px;
     color: white;
     margin-bottom: 0px;
+    z-index: 999;
+    border-top: 1px solid white;
 }
+
+/* Style for the pinned left div */
+.navigation {
+    position: fixed;
+    left: 0;
+    top: 0; /* Adjust as needed to control the vertical position */
+    width: 200px; /* Adjust the width as needed */
+    height: 100%; /* Make the div full height */
+    background-color: #04AA6D; /* Background color */
+    color: #fff; /* Text color */
+    padding: 20px; /* Add padding for content */
+    box-sizing: border-box; /* Include padding and border in the div's total width/height */
+    border: 0px solid white;
+    margin-top: 71px;
+    z-index: 1;
+}
+
 </style>

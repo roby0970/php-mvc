@@ -16,16 +16,43 @@ class Controller
        return new $model();
   }
   protected function requestAccess() {
-    $permissionNeeded = $this->permission();
-      if (isset($permissionNeeded)) {
-          if (isset($_SESSION['permission']) && in_array(($permissionNeeded), array_map('mapToName', $this->model('RolePermission')->getRolePermissions($_SESSION['role'])))) {
+     $permissionNeeded = $this->permission();
+      if ($permissionNeeded === '')
+      {
 
+      }
+      else{
+
+        if (isset($permissionNeeded)) {
+          if (isset($_SESSION['permission']) && in_array(($permissionNeeded), array_map('mapToName', $this->model('RolePermission')->getRolePermissions($_SESSION['role']))))
+          {
+            
           }
           else {
             $this->goHome();
           }
-      } 
+        } 
+      }
   }
+  protected function requestAccessFor($permission) {
+    $permissionNeeded = $permission;
+     if ($permissionNeeded === '')
+     {
+
+     }
+     else{
+
+       if (isset($permissionNeeded)) {
+         if (isset($_SESSION['permission']) && in_array(($permissionNeeded), array_map('mapToName', $this->model('RolePermission')->getRolePermissions($_SESSION['role']))))
+         {
+           
+         }
+         else {
+           $this->goHome();
+         }
+       } 
+     }
+ }
   public function view($view, $data = [])
   {   
       //load the header 

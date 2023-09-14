@@ -8,7 +8,7 @@
             echo
                 '
                     <div class="container-add-user">
-                        <a href="./CreateUsers" class="add-user-text">Add user</a></li>
+                        <a href="/Users/create" class="add-user-text">Add user</a></li>
                     </div>
                 ';
         }
@@ -47,12 +47,12 @@
                             if (isset($data['access']) && in_array("editUsers", $data['access'])) {
                                 echo
                                     '<td class="td"> 
-                                <a href="./EditUsers/' . $value->id . '">Edit</a>
+                                <a href="Users/edit/' . $value->id . '">Edit</a>
                             </td>';
                             }
                             if (isset($data['access']) && in_array("deleteUsers", $data['access'])) {
                                 echo '<td class="td"> 
-                                <a href="./DeleteUsers/' . $value->id . '">Delete</a>
+                                <a href="Users/delete/' . $value->id . '">Delete</a>
                             </td>';
                             }
                             echo '</tr>';

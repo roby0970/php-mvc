@@ -1,7 +1,8 @@
 <div class="edit">
     <div class="edit-container">
         <h1 id="index-text" class="edit-title"><?php echo $data['viewName']?></h1>
-        <form action="<?php echo $data['action']?>" method="POST" class="edit-form"> 
+        <form action="/Users/<?php echo $data['action']?>" method="POST" class="edit-form"> 
+            <input type="hidden" name="action" id="action" value="<?php echo $data['action']?>">
             <input type="hidden" name="userId" value="<?php if (isset($data['userData']->id)) { echo $data['userData']->id; } ?>">
             <div class="input-container">
                 <label for="formEmail">Email: </label>
